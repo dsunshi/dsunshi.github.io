@@ -10,3 +10,7 @@ tags: [haskell, srec, parsing]
 
 
 # Calculating the checksum
+
+```haskell
+type Byte = Int
+```
