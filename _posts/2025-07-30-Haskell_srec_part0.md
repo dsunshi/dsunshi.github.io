@@ -9,3 +9,4 @@ tags: [haskell, srec, parsing]
 # Brief introduction to S-record format
 
 
+# Calculating the checksum
