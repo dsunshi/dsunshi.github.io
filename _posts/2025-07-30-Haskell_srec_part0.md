@@ -19,7 +19,7 @@ A summary of the record structure is:
 ## Calculating the checksum
 
 This is also a simplified version of the full [Wikipedia example](https://en.wikipedia.org/wiki/SREC_(file_format)#Checksum_calculation):
-  1. Add all of the bytes in the Byte Count, Address, and Data fields.
+  1. Sum all of the bytes in the Byte Count, Address, and Data fields.
   2. Discard the most significant byte.
   3. Subtract the least significant byte of the sum from 255.
 
