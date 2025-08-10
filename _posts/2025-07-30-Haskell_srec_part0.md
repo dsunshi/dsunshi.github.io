@@ -59,8 +59,13 @@ splitChecksum raw = splitAt count raw
 compareChecksum :: (String, String) -> Bool
 compareChecksum (bytes, checksum) = parseByte checksum == checksum' bytes
 
+-- Drop 2 since the type of Srec is not relevant
 validateChecksum :: String -> Bool
-validateChecksum = compareChecksum . splitChecksum
+validateChecksum = compareChecksum . splitChecksum . drop 2
+
+prettyValid :: Bool -> String
+prettyValid True = "valid"
+prettyValid False = "invalid"
 
 testChecksum :: IO ()
 testChecksum = 
@@ -68,6 +73,6 @@ testChecksum =
     input = "S00F000068656C6C6F202020202000003C"
     valid = validateChecksum input
   in
-    putStrLn ("Checksum is: " ++ show valid)
+    putStrLn ("Checksum is: " ++ prettyValid valid)
 
 ```
