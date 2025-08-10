@@ -4,3 +4,6 @@ Haskell/srec_part0.lhs: _posts/2025-07-30-Haskell_srec_part0.md
 
 clean: Haskell/srec_part0.lhs
 	rm $<
+
+serve:
+	bundle exec jekyll serve
