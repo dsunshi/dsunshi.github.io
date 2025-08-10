@@ -1,20 +1,20 @@
 ---
 title: RAM/ROM Optimization
 description: Detailed ideas for intensive RAM/ROM optimization for embedded devices
-date: 2025-08-09 18:00:00 -0500
+date: 2025-08-10 18:00:00 -0500
 categories: [C]
 tags: [ram, rom, c]
 ---
 
 # RAM/ROM Optimization Theories
 
-This guide is meant to list some more advanced or unusual methods for finding and optimizing RAM and ROM usage in embedded C projects.
+This article is meant to list some more advanced or unusual methods for finding and optimizing RAM and ROM usage in embedded C projects.
 
 ## "Oversized" ROM data
 
 Since in C we must declare the data type it is possible to "oversize" the data. For example if we declare the type as
-`int`, but the value of the data is always less than 255 (where `char` would suffice), then we are losing 3 bytes per
-variable. While this may not sound like much, for large projects with large data tables this can easily amount to
+`int`, but the value of the data is always less than 255 (i.e. where '`char`' would suffice), then we are losing 3 bytes per
+variable. While this may not sound like much, for large projects with large data tables or data structures this can quickly amount to
 kilobytes of storage.
 
 To find such oversized ROM data we need a few inputs:
@@ -30,7 +30,7 @@ for each variable (from the map file):
 
 ### Interpreting the Results
 
-If more that 50% of a variable stored in the binary file is 0x00, than this problem exists. It **can** also exist for
+If more that 50% of a variable stored in the binary file is 0x00, than this problem exists. It **can also** exist for
 variables that are less that 50% if they are structures, where not all elements have this problem. For example:
 ```c
 struct
@@ -45,11 +45,11 @@ less than 50% have to be manually checked. This will of course depend on how man
 
 ## const v. #define
 
-This is compiler specific, but is a simple test. In an ideal world any variables that are declared as `const` should
-not be present in the binary (at least more than absolutely necessary). However, it is possible that changing `const`
+This hint is compiler specific, but is also a simple test. In an ideal world any variables that are declared as `const` should
+not be present in the binary (at least not more than absolutely necessary). However, it is possible that changing `const`
 variables to `#defines` will result in a different binary.
 
-I have seen a project that used auto-generated code that had several hundred `const` variables all with the value of
+Personally, I have seen a project that used auto-generated code that had several hundred `const` variables all with the value of
 `0`. Changing these from `unsigned char` to `#define` saved over 1kb of ROM. And yes every possible optimization for
 ROM saving was already set (in conjunction with application engineers from the compiler's company).
 
@@ -57,7 +57,7 @@ The moral of the story is to try it, and see what happens - the answer may surpr
 
 ## Array Initialization
 
-A second example of how different compilers will generate different code (even with the correct optimization setting).
+A second example of how different compilers will generate different code (even with the "correct" optimization setting).
 
 The code
 ```c
