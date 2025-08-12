@@ -10,7 +10,15 @@ tags: [haskell, l-system]
 
 This article is based on Daniel Shiffman's coding challenge on YouTube: [Coding Challenge #16: L-System Fractal Trees](https://www.youtube.com/watch?v=E1B4UoSQMFw).
 
-# Simple L-Systems in Haskell
+## Simple L-Systems in Haskell
+
+The following Haskell implementation is based on Daniel Shiffman's original L-System:
+
+Axiom: "A"
+
+Rules:
+ - A -> AB
+ - B -> A
 
 ```haskell
 module Main where
