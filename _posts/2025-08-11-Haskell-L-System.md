@@ -1,6 +1,6 @@
 ---
 title: Simple L-Systems in Haskell
-description: A basic text-based l-sytem in Haskell based on a Coding Train episode
+description: A basic text-based L-System in Haskell based on a Coding Train episode
 date: 2025-08-11 19:00:00 -0500
 categories: [Haskell]
 tags: [haskell, l-system]
@@ -12,7 +12,7 @@ This article is based on Daniel Shiffman's coding challenge on YouTube: [Coding 
 
 ## Simple L-Systems in Haskell
 
-The following Haskell implementation is based on Daniel Shiffman's original L-System:
+The following Haskell implementation is based on the original L-System example from the video linked above:
 
 Axiom: "A"
 
