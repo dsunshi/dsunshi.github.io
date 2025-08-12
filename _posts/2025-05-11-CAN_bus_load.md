@@ -13,7 +13,7 @@ Bus arbitration also makes the entire bus non-deterministic.
 
 ## Fields in a CAN frame
 | Field Name   |                                                                Size (in bits) |
-| :----------- | ----------------------------------------------------------------------------: |
+| ----------- | ---------------------------------------------------------------------------- |
 | Start        |                                                                             1 |
 | Identifier   |                                               11 (standard), or 27 (extended) |
 | RTR          |                                                                             1 |
