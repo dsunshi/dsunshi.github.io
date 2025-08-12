@@ -21,7 +21,6 @@ Rules:
  - B -> A
 
 ```haskell
-module Main where
 
 import Data.Maybe
 
@@ -50,3 +49,4 @@ apply rules = concatMap (applyRule rules)
 main :: IO ()
 main = print $ take 5 $ iterate (apply myRules) "A"
 ```
+
