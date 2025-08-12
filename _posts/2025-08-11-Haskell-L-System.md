@@ -12,7 +12,7 @@ This article is based on Daniel Shiffman's coding challenge on YouTube: [Coding 
 
 # Simple L-Systems in Haskell
 
-```Haskell
+```haskell
 module Main where
 
 import Data.Maybe
