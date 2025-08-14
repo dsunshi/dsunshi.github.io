@@ -12,18 +12,20 @@ This will *always* be an estimation since the number of stuff bits is impacted b
 Bus arbitration also makes the entire bus non-deterministic.
 
 ## Fields in a CAN frame
-| Field Name   |                                                                Size (in bits) |
-| ----------- | ---------------------------------------------------------------------------- |
-| Start        |                                                                             1 |
-| Identifier   |                                               11 (standard), or 27 (extended) |
-| RTR          |                                                                             1 |
-| Control      |                                                                             6 |
-| Data         |                          64 (worst case standard), or 512 (worst case CAN-FD) |
-| CRC          | 15, or (CAN-FD is 16 for 0-16 data **bytes** and 21 for 17-64 data **bytes**) |
-| ACK          |                                                                             3 |
-| EOF          |                                                                             7 |
-| Intermission |                                                                             1 |
-| Stuffing`*`  |     CEIL( (`Identifier` + `Data` + `CRC`) / 5) (worst case is all `0` or `1`) |
+
+| Field Name | Size (in bits) |
+| ---------- | -------------- |
+| Start | 1 |
+| Identifier| 11 (standard), or 27 (extended) |
+| RTR| 1 |
+| Control| 6 |
+| Data| 64 (worst case standard), or 512 (worst case CAN-FD) |
+| CRC | 15, or (CAN-FD is 16 for 0-16 data **bytes** and 21 for 17-64 data **bytes**) |
+| ACK | 3 |
+| EOF | 7 |
+| Intermission | 1 |
+| Stuffing`*` | CEIL( (`Identifier` + `Data` + `CRC`) / 5) (worst case is all `0` or `1`) |
+
 `*`: The `5` here represents the maximum number of stuffing bits
 
 ```
